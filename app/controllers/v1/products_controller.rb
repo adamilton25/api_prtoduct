@@ -4,7 +4,7 @@ module V1
         before_action :set_product, only: %i[update show destroy]
 
         def index
-            @products = Product.all.limit(1000)
+            @products = Product.all.limit(1000).order('created_at DESC')
             render json: {products: @products}
         end
 
